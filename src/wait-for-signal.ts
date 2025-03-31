@@ -1,0 +1,24 @@
+import { Trove } from "@rbxts/trove";
+import InternalSignal from "@rbxutil/signal";
+
+interface Signal<T extends unknown[]> {
+    Once(callback: (...args: T) => void): Trove.Trackable;
+}
+
+export function waitForSignal<T extends unknown[]>(signal: Signal<T>, timeout: number) {
+    const waitSignal = new InternalSignal<unknown[]>();
+    const trove = new Trove();
+
+    trove.add(task.delay(timeout, () => {
+        waitSignal.Fire();
+    }));
+    trove.add(signal.Once((...args) => {
+        waitSignal.Fire(...args);
+    }));
+
+    const res = waitSignal.Wait();
+
+    trove.destroy();
+
+    return res;
+}
