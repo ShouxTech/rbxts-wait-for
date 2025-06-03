@@ -1,5 +1,5 @@
 import { Trove } from "@rbxts/trove";
-import InternalSignal from "@rbxutil/signal";
+import InternalSignal from "@rbxts/sleitnick-signal";
 
 interface Signal<T extends unknown[]> {
     Once(callback: (...args: T) => void): Trove.Trackable;

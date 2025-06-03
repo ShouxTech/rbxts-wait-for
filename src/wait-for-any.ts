@@ -1,7 +1,7 @@
 // Based off of https://devforum.roblox.com/t/waitfor-easier-handling-of-multiple-events/340851.
 
 import { Trove } from "@rbxts/trove";
-import Signal from "@rbxutil/signal";
+import Signal from "@rbxts/sleitnick-signal";
 
 export function waitForAny(...signals: Signal<unknown>[]): [Signal<unknown>, ...unknown[]] {
     const anySignal = new Signal<[Signal<unknown>, ...unknown[]]>();
@@ -17,4 +17,3 @@ export function waitForAny(...signals: Signal<unknown>[]): [Signal<unknown>, ...
 
     return anySignal.Wait();
 }
-

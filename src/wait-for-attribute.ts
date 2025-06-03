@@ -8,4 +8,3 @@ export function waitForAttribute(instance: Instance, attribute: string, timeout:
 
     return instance.GetAttribute(attribute);
 }
-
