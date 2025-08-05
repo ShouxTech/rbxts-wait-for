@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/roblox-wait-for",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "",
   "main": "out/init.lua",
   "scripts": {

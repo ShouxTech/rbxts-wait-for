@@ -18,7 +18,10 @@ export function waitForSignal<T extends unknown[]>(signal: Signal<T>, timeout: n
 
     const res = waitSignal.Wait();
 
-    trove.destroy();
+    // Using task.defer to prevent a specific task.cancel error from Trove destroy.
+    task.defer(() => {
+        trove.destroy()
+    });
 
     return res;
 }
